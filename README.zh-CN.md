@@ -87,6 +87,7 @@ ExOPD λ=1.25 采用公开推荐设置，λ=1.1 作为额外对照，两组成�
 ```bibtex
 @misc{opd_speed_run_2026,
   title = {{OPD Speed Run}: A Fixed-Budget Benchmark for On-Policy Distillation},
+  author = {Ruan, Kai},
   year  = {2026},
   note  = {README release, October 17, 2026}
 }
