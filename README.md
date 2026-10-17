@@ -88,7 +88,6 @@ If you use this benchmark or its results, please cite:
 @misc{opd_speed_run_2026,
   title = {{OPD Speed Run}: A Fixed-Budget Benchmark for On-Policy Distillation},
   author = {Ruan, Kai},
-  year  = {2026},
-  note  = {README release, October 17, 2026}
+  year  = {2026}
 }
 ```
