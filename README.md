@@ -1,5 +1,7 @@
 # OPD Speed Run
 
+**Author: Kai Ruan**
+
 [中文](README.zh-CN.md)
 
 **Fixed models. Fixed data. Fixed hardware. Fixed training time.**
@@ -12,7 +14,7 @@ The current track focuses on single-turn math and code with **Qwen3-1.7B ← Qwe
 
 ## Results
 
-Snapshot: **October 17, 2026**. Seven training recipes have completed the fixed-budget run and all four evaluation sets. Scores are percentages; bold indicates the highest observed score in each column.
+Snapshot: **October 18, 2026**. Thirteen training recipes have completed the fixed-budget run and all four evaluation sets. Scores are percentages; bold indicates the highest observed score in each column.
 
 | Method / recipe | Math500 | AIME 2024 | AIME 2025 | LiveCodeBench v6¹ |
 |:--|--:|--:|--:|--:|
@@ -21,17 +23,44 @@ Snapshot: **October 17, 2026**. Seven training recipes have completed the fixed-
 | ExOPD λ=1.1 | 75.35 | 15.83 | 13.96 | 16.43 |
 | ExOPD λ=1.25 | 73.35 | 14.58 | 13.96 | **17.29** |
 | Binary OPD | 74.45 | 15.63 | 12.92 | 16.43 |
-| IW-OPD | 75.40 | **17.08** | **14.79** | 16.29 |
-| TA-OPD (tail-aware) | **75.55** | 15.63 | **14.79** | 16.57 |
+| IW-OPD | 75.40 | **17.08** | 14.79 | 16.29 |
+| TA-OPD (tail-aware) | **75.55** | 15.63 | 14.79 | 16.57 |
 | LSPD | 75.25 | 13.33 | 13.33 | **17.29** |
+| ResOPD | 74.00 | 16.88 | 14.38 | 16.00 |
+| PowerOPD α=5 | 74.40 | 12.71 | 13.75 | 16.14 |
+| AOPD | 74.45 | 13.13 | 11.67 | 17.00 |
+| OPD+ (FKL) | 73.40 | 14.79 | 12.29 | 16.57 |
+| IER | 73.10 | 13.33 | 13.13 | 16.14 |
+| FiRe | 74.30 | 16.88 | **15.63** | 15.71 |
 
 ¹ LiveCodeBench v6 scores use a frozen **175-task subset**.
 
 Scores estimate **pass@1** by averaging correctness across sampled responses. Each recipe uses **one training run with seed 42**; rankings across training seeds remain to be measured.
 
-**Results at a glance:** IW-OPD leads on AIME 2024. Tail-aware TA-OPD leads on Math500 and ties IW-OPD on AIME 2025. ExOPD λ=1.25 and LSPD tie on code, with a tradeoff in math performance. The margins are small: TA-OPD exceeds IW-OPD by 3/2,000 correct Math500 responses, and the code leaders exceed ordinary OPD by 4/700.
+**Results at a glance:** IW-OPD leads on AIME 2024. Tail-aware TA-OPD leads on Math500, and FiRe leads on AIME 2025. ExOPD λ=1.25 and LSPD tie on code, with a tradeoff in math performance. The margins are small: TA-OPD exceeds IW-OPD by 3/2,000 correct Math500 responses, and the code leaders exceed ordinary OPD by 4/700.
+
+ResOPD scores above ordinary OPD on AIME 2024/2025 and below it on Math500 and code. PowerOPD α=5 scores below ordinary OPD on all four evaluations. AOPD improves code by 0.29 percentage points over ordinary OPD, with lower scores on all three math evaluations.
+
+FiRe improves AIME 2025 by **1.46 percentage points** over ordinary OPD, while scoring lower on Math500 and code. OPD+ (FKL) and IER score below ordinary OPD on all four sets in this run.
+
+Compared with the initial student, the best observed gains are **+2.20 percentage points on Math500, +2.71 on AIME 2024, +5.21 on AIME 2025, and +0.86 on code**. These gains come from different recipes; no recipe leads on all four sets. Differences are calculated from unrounded scores.
 
 ExOPD λ=1.25 follows a public recommendation; λ=1.1 provides an additional comparison. We report both recipes separately.
+
+### Integration results — October 18
+
+OPD+ (FKL), IER, and FiRe have completed all four evaluations; their scores are included above. FiRe also passed checkpoint-to-evaluation lineage verification.
+
+| Candidate | Verified development results | Remaining before a formal score |
+|:--|:--|:--|
+| Lightning OPD | A 16-prompt, five-stage pipeline completed under one shared development deadline. Separate batch-256 checks passed teacher demonstration generation, SFT, reference generation, teacher scoring, two distillation updates, checkpoint/resume state and data-cursor parity, and terminal export/reload. | Complete the fresh 256-prompt pipeline under one shared deadline, then qualify the three-hour run and evaluate its final checkpoint. |
+| ULD | Fresh student trajectories passed generation/rescoring checks and teacher full-logit alignment. Two native updates passed through the actual Ray actor path on 16 devices using fixed replay. Native checkpoint resume also passed model, optimizer, RNG, scheduler, and data-cursor parity checks. | Complete batch-256 and the online sampling–teacher–update lifecycle qualification before formal admission and evaluation. |
+
+Latest completed checks: ULD teacher scoring passed on **256 fresh student trajectories**, with a maximum absolute difference of **4.49 × 10⁻⁶** between API logprobs and logprobs reconstructed from exported teacher logits. Natural prompts and a 32K-context case also passed after moving control markers from OSS to local storage. All 256 trajectory bindings and conversion through the actual Slime Sample path have now passed. Batch-256 native updates, resume/export, and the online lifecycle remain under qualification.
+
+Lightning OPD’s one-hour, 256-prompt pipeline generated all teacher demonstrations in **3,378.7 seconds**, then reached its deadline during SFT. The run stopped at **3,600.24 seconds** with no remaining owned processes. The shared-budget five-stage qualification is being repeated with the track’s 10,800-second limit; the one-hour result remains a deadline failure.
+
+These are engineering qualification results; neither Lightning OPD nor ULD has a formal benchmark score yet. Qualification timings cover their tested stages and are not end-to-end speedup claims.
 
 ## Fixed-budget protocol
 
@@ -76,7 +105,8 @@ The current track covers Qwen3-1.7B ← Qwen3-4B on ZW810E with a three-hour bud
 
 ## Next steps
 
-- Complete ResOPD and PowerOPD qualification and evaluation.
+- Complete the shared-budget pipeline qualification for Lightning OPD.
+- Complete ULD batch-256 and online lifecycle qualification.
 - Extend the benchmark to more open-source OPD methods.
 - Release the training code, frozen evaluation tools, and exact configuration manifests.
 
@@ -86,8 +116,9 @@ If you use this benchmark or its results, please cite:
 
 ```bibtex
 @misc{opd_speed_run_2026,
-  title = {{OPD Speed Run}: A Fixed-Budget Benchmark for On-Policy Distillation},
   author = {Ruan, Kai},
-  year  = {2026}
+  title = {{OPD Speedrun}: A Fixed-Budget Benchmark for On-Policy Distillation},
+  year  = {2026},
+  url   = {https://github.com/x66ccff/OPD-speedrun}
 }
 ```
