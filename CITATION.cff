@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use OPD Speedrun in your research, please cite it as below."
+type: software
+title: "OPD Speedrun: A Fixed-Budget Benchmark for On-Policy Distillation"
+authors:
+  - family-names: "Ruan"
+    given-names: "Kai"
+url: "https://github.com/x66ccff/OPD-speedrun"
+preferred-citation:
+  type: generic
+  title: "OPD Speedrun: A Fixed-Budget Benchmark for On-Policy Distillation"
+  authors:
+    - family-names: "Ruan"
+      given-names: "Kai"
+  year: 2026
+  url: "https://github.com/x66ccff/OPD-speedrun"
