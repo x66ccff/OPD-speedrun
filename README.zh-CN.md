@@ -115,10 +115,10 @@ Lightning OPD 的一小时、256 题完整流程在 **3,378.7 秒**完成全部�
 如果使用本项目的评测协议或结果，请引用：
 
 ```bibtex
-@misc{opd_speed_run_2026,
+@misc{Ruan_OPD_Speedrun_A_2026,
   author = {Ruan, Kai},
-  title = {{OPD Speedrun}: A Fixed-Budget Benchmark for On-Policy Distillation},
-  year  = {2026},
-  url   = {https://github.com/x66ccff/OPD-speedrun}
+  title = {{OPD Speedrun: A Fixed-Budget Benchmark for On-Policy Distillation}},
+  url = {https://github.com/x66ccff/OPD-speedrun},
+  year = {2026}
 }
 ```
