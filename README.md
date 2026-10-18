@@ -115,10 +115,10 @@ The current track covers Qwen3-1.7B ← Qwen3-4B on ZW810E with a three-hour bud
 If you use this benchmark or its results, please cite:
 
 ```bibtex
-@misc{opd_speed_run_2026,
+@misc{Ruan_OPD_Speedrun_A_2026,
   author = {Ruan, Kai},
-  title = {{OPD Speedrun}: A Fixed-Budget Benchmark for On-Policy Distillation},
-  year  = {2026},
-  url   = {https://github.com/x66ccff/OPD-speedrun}
+  title = {{OPD Speedrun: A Fixed-Budget Benchmark for On-Policy Distillation}},
+  url = {https://github.com/x66ccff/OPD-speedrun},
+  year = {2026}
 }
 ```
