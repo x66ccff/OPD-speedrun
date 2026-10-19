@@ -1,20 +1,14 @@
 # OPD Speed Run
 
-**Author: Kai Ruan**
+**Author: Kai Ruan** · [中文](README.zh-CN.md)
 
-[中文](README.zh-CN.md)
+Compare open-source teacher-to-student transfer methods with fixed data, models, and a budget of **16 × ZW810E PPU cards (96 GB each) for three hours**. Math, Single-turn Code, and Multi-turn Agentic are separate training tracks with separate results.
 
-**Fixed models. Fixed data. Fixed hardware. Fixed training time.**
+**Updated October 19, 2026.** Evaluation is complete for 13 Math recipes and 4 Code recipes. This is a README-first release; code and reproduction artifacts will follow.
 
-OPD Speed Run compares on-policy distillation algorithms under a shared compute budget: how much can a small student improve by learning from a fixed, larger teacher in three hours?
+## Math
 
-The current track focuses on single-turn math and code with **Qwen3-1.7B ← Qwen3-4B**. We reproduce existing methods under a common protocol and measure their final-checkpoint performance within the same resource budget.
-
-> **Release status:** Results and protocol are available here. Training code, evaluation tools, configuration manifests, and reproducibility artifacts will follow.
-
-## Results
-
-Snapshot: **October 18, 2026**. Thirteen training recipes have completed the fixed-budget run and all four evaluation sets. Scores are percentages; bold indicates the highest observed score in each column.
+Train on math; evaluate the same final checkpoint on math and code. Models: **Qwen3-1.7B ← Qwen3-4B**, both non-thinking.
 
 | Method / recipe | Math500 | AIME 2024 | AIME 2025 | LiveCodeBench v6¹ |
 |:--|--:|--:|--:|--:|
@@ -33,92 +27,45 @@ Snapshot: **October 18, 2026**. Thirteen training recipes have completed the fix
 | IER | 73.10 | 13.33 | 13.13 | 16.14 |
 | FiRe | 74.30 | 16.88 | **15.63** | 15.71 |
 
-¹ LiveCodeBench v6 scores use a frozen **175-task subset**.
+## Single-turn Code
 
-Scores estimate **pass@1** by averaging correctness across sampled responses. Each recipe uses **one training run with seed 42**; rankings across training seeds remain to be measured.
+Train on 12,238 fixed code prompts; evaluate the same final checkpoint on code and math. Models match the Math track.
 
-**Results at a glance:** IW-OPD leads on AIME 2024. Tail-aware TA-OPD leads on Math500, and FiRe leads on AIME 2025. ExOPD λ=1.25 and LSPD tie on code, with a tradeoff in math performance. The margins are small: TA-OPD exceeds IW-OPD by 3/2,000 correct Math500 responses, and the code leaders exceed ordinary OPD by 4/700.
+| Method / recipe | LiveCodeBench v6 | HumanEval+ | MBPP+ | Math500 |
+| :-- | --: | --: | --: | --: |
+| Initial student (no training) | 16.43 | 62.65 | 49.40 | 73.35 |
+| OPD | 15.57 | 61.59 | 49.93 | 72.80 |
+| ExOPD λ=1.1 | **17.14** | **64.48** | **50.40** | 73.30 |
+| ExOPD λ=1.25 | 16.00 | 64.18 | 49.74 | **73.55** |
+| IW-OPD | 16.00 | 62.04 | 50.07 | 73.00 |
 
-ResOPD scores above ordinary OPD on AIME 2024/2025 and below it on Math500 and code. PowerOPD α=5 scores below ordinary OPD on all four evaluations. AOPD improves code by 0.29 percentage points over ordinary OPD, with lower scores on all three math evaluations.
+## Multi-turn Agentic
 
-FiRe improves AIME 2025 by **1.46 percentage points** over ordinary OPD, while scoring lower on Math500 and code. OPD+ (FKL) and IER score below ordinary OPD on all four sets in this run.
+Tool-interaction tasks. Teacher selection, tool protocol, and formal evaluation remain under qualification. **— means no formal score yet.**
 
-Compared with the initial student, the best observed gains are **+2.20 percentage points on Math500, +2.71 on AIME 2024, +5.21 on AIME 2025, and +0.86 on code**. These gains come from different recipes; no recipe leads on all four sets. Differences are calculated from unrounded scores.
+| Model / method | Task success | Status |
+|:--|--:|:--|
+| Initial student · Qwen3-1.7B | — | Development evaluation; formal scores pending |
+| Candidate teacher · Qwen3-32B | — | Teacher–student compatibility and task capability under qualification |
+| Vanilla OPD | — | Two development updates on 16 cards passed; formal scores pending |
 
-ExOPD λ=1.25 follows a public recommendation; λ=1.1 provides an additional comparison. We report both recipes separately.
+## Comparison protocol
 
-### Integration results — October 18
+- **Scores:** percentages, mean sample correctness (a pass@1 estimate). Each recipe currently has one training run, seed 42. Bold marks the highest observed value in each column.
+- **Evaluation:** Math500 uses 4 samples per task; each AIME set uses 16. LCB v6¹ uses a frozen 175-task subset with 4 samples per task. HumanEval+ covers 164 tasks and MBPP+ covers 378, each with 4 samples and the pinned official EvalPlus evaluator. Format errors and truncations remain in the denominator.
+- **Shared conditions:** lock data and field permissions, initial teacher/student weights, hardware, time, n, learning rate, sampling, and formal evaluation within each track. Current Math/Code training uses n=1, learning rate 1e-6, temperature=1, top-p=1, and top-k disabled.
+- **Allowed methods:** SFT, online/offline distillation, RL, staged combinations, teacher demonstrations, caching, and replay all count toward the same budget. Preserve justified algorithm-specific differences; no external data or free additional trained checkpoints. Mark inapplicable parameters as such.
+- **Accounting and selection:** the clock starts at launcher invocation, including initialization, checks, and all training stages. Evaluate the last complete checkpoint saved before the deadline. Debugging, qualification, and final evaluation are accounted for separately. Agentic runs use a shared sandbox pool; environment queueing, execution, and cleanup count toward the budget, with contention reported.
 
-OPD+ (FKL), IER, and FiRe have completed all four evaluations; their scores are included above. FiRe also passed checkpoint-to-evaluation lineage verification.
-
-| Candidate | Verified development results | Remaining before a formal score |
-|:--|:--|:--|
-| Lightning OPD | A 16-prompt, five-stage pipeline completed under one shared development deadline. Separate batch-256 checks passed teacher demonstration generation, SFT, reference generation, teacher scoring, two distillation updates, checkpoint/resume state and data-cursor parity, and terminal export/reload. | Complete the fresh 256-prompt pipeline under one shared deadline, then qualify the three-hour run and evaluate its final checkpoint. |
-| ULD | Fresh student trajectories passed generation/rescoring checks and teacher full-logit alignment. Two native updates passed through the actual Ray actor path on 16 devices using fixed replay. Native checkpoint resume also passed model, optimizer, RNG, scheduler, and data-cursor parity checks. | Complete batch-256 and the online sampling–teacher–update lifecycle qualification before formal admission and evaluation. |
-
-Latest completed checks: ULD teacher scoring passed on **256 fresh student trajectories**, with a maximum absolute difference of **4.49 × 10⁻⁶** between API logprobs and logprobs reconstructed from exported teacher logits. Natural prompts and a 32K-context case also passed after moving control markers from OSS to local storage. All 256 trajectory bindings and conversion through the actual Slime Sample path have now passed. Batch-256 native updates, resume/export, and the online lifecycle remain under qualification.
-
-Lightning OPD’s one-hour, 256-prompt pipeline generated all teacher demonstrations in **3,378.7 seconds**, then reached its deadline during SFT. The run stopped at **3,600.24 seconds** with no remaining owned processes. The shared-budget five-stage qualification is being repeated with the track’s 10,800-second limit; the one-hour result remains a deadline failure.
-
-These are engineering qualification results; neither Lightning OPD nor ULD has a formal benchmark score yet. Qualification timings cover their tested stages and are not end-to-end speedup claims.
-
-## Fixed-budget protocol
-
-| Component | Current track |
-|:--|:--|
-| Student | Qwen3-1.7B, initialized from the same original HF weights for each run |
-| Teacher | Frozen Qwen3-4B; external larger teacher |
-| Thinking mode | Non-thinking for both student and teacher |
-| Training data | The same 56,107-prompt DeepMath-derived prompt-only asset |
-| Hardware | One node, 16 × ZW810E PPU, 96 GB per device |
-| Time limit | 10,800 seconds from launcher start, including initialization and checks |
-| Resource allocation | 8 actor devices, 6 rollout devices, 2 teacher devices |
-| Training batch | 256 prompts; one sampled response per prompt |
-| Training sampling | Temperature 1.0, top-p 1.0, top-k disabled |
-| Training lengths | Maximum response: 8,192 tokens; context: 32,768 tokens |
-| Optimizer | Adam, constant learning rate 1e-6, no warmup; seed 42 |
-| Loss reduction | Mean over valid tokens within each response, then mean over responses |
-| Checkpoint selection | Last complete checkpoint saved before the deadline |
-
-Each formal run receives **48 allocated PPU-device-hours**. Qualification, debugging, failed attempts, and final evaluation are accounted for separately. Utilization varies across rollout, scoring, and update phases.
-
-We fix shared experimental conditions and preserve each method's objective and algorithm-specific parameters. Reproductions record the adaptations from author defaults to this common protocol.
-
-## Evaluation
-
-All checkpoints use the same frozen prompts, decoding settings, scoring logic, and task IDs. Checkpoint selection follows the time-budget rule above.
-
-| Evaluation set | Tasks | Samples per task | Temperature | Top-p | Max. response tokens |
-|:--|--:|--:|--:|--:|--:|
-| Math500 | 500 | 4 | 0.7 | 0.95 | 8,192 |
-| AIME 2024 | 30 | 16 | 0.7 | 0.95 | 8,192 |
-| AIME 2025 | 30 | 16 | 0.7 | 0.95 | 8,192 |
-| LiveCodeBench v6, fixed slice | 175 | 4 | 1.0 | 1.0 | 16,384 |
-
-That is **3,660 evaluated responses per checkpoint**. Math uses a 10,240-token context limit and code uses 24,576; evaluation seed is 20261014. Code correctness is determined by executing tests. Evaluation retains format errors and truncated responses in the original sample set.
-
-## Reproduction checks
-
-Before formal admission, candidates undergo checks of actual backward execution, full-batch updates, checkpoint/resume consistency, data-cursor continuity, export/reload, and matched-trajectory rescoring. Training-entry checks enforce the registered configuration before resource allocation. Qualification records bind each result to its tested runtime and configuration.
-
-The current track covers Qwen3-1.7B ← Qwen3-4B on ZW810E with a three-hour budget. Data auditing covers exact deduplication; semantic and pretraining contamination remain unaudited.
-
-## Next steps
-
-- Complete the shared-budget pipeline qualification for Lightning OPD.
-- Complete ULD batch-256 and online lifecycle qualification.
-- Extend the benchmark to more open-source OPD methods.
-- Release the training code, frozen evaluation tools, and exact configuration manifests.
+Different methods lead on different Math evaluations. ExOPD λ=1.1 leads all three Code-track code evaluations. Small differences from one training seed do not establish stable rankings. Lightning OPD and ULD have no formal scores yet.
 
 ## Citation
 
-If you use this benchmark or its results, please cite:
-
 ```bibtex
-@misc{Ruan_OPD_Speedrun_A_2026,
+@misc{opd_speed_run_2026,
   author = {Ruan, Kai},
-  title = {{OPD Speedrun: A Fixed-Budget Benchmark for On-Policy Distillation}},
-  url = {https://github.com/x66ccff/OPD-speedrun},
-  year = {2026}
+  title = {{OPD Speed Run}: A Fixed-Budget Benchmark for On-Policy Distillation},
+  year  = {2026},
+  url   = {https://github.com/x66ccff/OPD-speedrun}
 }
 ```
