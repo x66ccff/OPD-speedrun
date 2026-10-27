@@ -15,18 +15,18 @@
 | 初始学生（未训练） | 73.35 | 14.38 | 10.42 | 16.43 |
 | 固定教师 · Qwen3-4B | 83.45 | 26.04 | 20.83 | 25.71 |
 | OPD [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 74.85 | 15.42 | 14.17 | 16.71 |
-| ExOPD λ=1.1 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 75.35 | 15.83 | 13.96 | 16.43 |
-| ExOPD λ=1.25 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 73.35 | 14.58 | 13.96 | **17.29** |
+| ExOPD λ=1.1 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 75.35 🥉 | 15.83 | 13.96 | 16.43 |
+| ExOPD λ=1.25 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 73.35 | 14.58 | 13.96 | **17.29** 🥇 |
 | Binary OPD [![GitHub](https://img.shields.io/badge/GitHub-KL--Free--OPD-181717?logo=github&logoColor=white)](https://github.com/LeapLabTHU/KL-Free-OPD) | 74.45 | 15.63 | 12.92 | 16.43 |
-| IW-OPD [![GitHub](https://img.shields.io/badge/GitHub-IW--OPD-181717?logo=github&logoColor=white)](https://github.com/YannX1e/Importance-Weighted-On-Policy-Distillation) | 75.40 | **17.08** | 14.79 | 16.29 |
-| TA-OPD (tail-aware) [![GitHub](https://img.shields.io/badge/GitHub-TA--OPD-181717?logo=github&logoColor=white)](https://github.com/ml-stat-Sustech/TA-OPD) | **75.55** | 15.63 | 14.79 | 16.57 |
-| LSPD [![GitHub](https://img.shields.io/badge/GitHub-LSPD-181717?logo=github&logoColor=white)](https://github.com/UNCSciML/LSPD) | 75.25 | 13.33 | 13.33 | **17.29** |
-| ResOPD [![GitHub](https://img.shields.io/badge/GitHub-ResOPD-181717?logo=github&logoColor=white)](https://github.com/InternLM/ResOPD) | 74.00 | 16.88 | 14.38 | 16.00 |
+| IW-OPD [![GitHub](https://img.shields.io/badge/GitHub-IW--OPD-181717?logo=github&logoColor=white)](https://github.com/YannX1e/Importance-Weighted-On-Policy-Distillation) | 75.40 🥈 | **17.08** 🥇 | 14.79 🥈 | 16.29 |
+| TA-OPD (tail-aware) [![GitHub](https://img.shields.io/badge/GitHub-TA--OPD-181717?logo=github&logoColor=white)](https://github.com/ml-stat-Sustech/TA-OPD) | **75.55** 🥇 | 15.63 | 14.79 🥈 | 16.57 |
+| LSPD [![GitHub](https://img.shields.io/badge/GitHub-LSPD-181717?logo=github&logoColor=white)](https://github.com/UNCSciML/LSPD) | 75.25 | 13.33 | 13.33 | **17.29** 🥇 |
+| ResOPD [![GitHub](https://img.shields.io/badge/GitHub-ResOPD-181717?logo=github&logoColor=white)](https://github.com/InternLM/ResOPD) | 74.00 | 16.88 🥈 | 14.38 | 16.00 |
 | PowerOPD α=5 [![GitHub](https://img.shields.io/badge/GitHub-PowerOPD-181717?logo=github&logoColor=white)](https://github.com/EIT-NLP/PowerOPD) | 74.40 | 12.71 | 13.75 | 16.14 |
-| AOPD [![GitHub](https://img.shields.io/badge/GitHub-AOPD-181717?logo=github&logoColor=white)](https://github.com/ObitoJN/AOPD_VeRL) | 74.45 | 13.13 | 11.67 | 17.00 |
+| AOPD [![GitHub](https://img.shields.io/badge/GitHub-AOPD-181717?logo=github&logoColor=white)](https://github.com/ObitoJN/AOPD_VeRL) | 74.45 | 13.13 | 11.67 | 17.00 🥉 |
 | OPD+ (FKL) [![GitHub](https://img.shields.io/badge/GitHub-nano--opd-181717?logo=github&logoColor=white)](https://github.com/siyux1927/nano-opd) | 73.40 | 14.79 | 12.29 | 16.57 |
 | IER [![GitHub](https://img.shields.io/badge/GitHub-IER--OPD-181717?logo=github&logoColor=white)](https://github.com/BruceSheng1202/IER-OPD) | 73.10 | 13.33 | 13.13 | 16.14 |
-| FiRe [![GitHub](https://img.shields.io/badge/GitHub-FiRe--OPD-181717?logo=github&logoColor=white)](https://github.com/YuYingLi0/FiRe-OPD) | 74.30 | 16.88 | **15.63** | 15.71 |
+| FiRe [![GitHub](https://img.shields.io/badge/GitHub-FiRe--OPD-181717?logo=github&logoColor=white)](https://github.com/YuYingLi0/FiRe-OPD) | 74.30 | 16.88 🥈 | **15.63** 🥇 | 15.71 |
 
 ## 单轮代码
 
@@ -37,17 +37,17 @@
 | 初始学生（未训练） | 16.43 | 62.65 | 49.40 | 73.35 |
 | 固定教师 · Qwen3-4B | 25.71 | 76.98 | 58.53 | 83.45 |
 | OPD [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 15.57 | 61.59 | 49.93 | 72.80 |
-| ExOPD λ=1.1 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 17.14 | **64.48** | 50.40 | 73.30 |
-| ExOPD λ=1.25 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 16.00 | 64.18 | 49.74 | 73.55 |
-| IW-OPD [![GitHub](https://img.shields.io/badge/GitHub-IW--OPD-181717?logo=github&logoColor=white)](https://github.com/YannX1e/Importance-Weighted-On-Policy-Distillation) | 16.00 | 62.04 | 50.07 | 73.00 |
+| ExOPD λ=1.1 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 17.14 🥉 | **64.48** 🥇 | 50.40 | 73.30 |
+| ExOPD λ=1.25 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 16.00 | 64.18 🥈 | 49.74 | 73.55 |
+| IW-OPD [![GitHub](https://img.shields.io/badge/GitHub-IW--OPD-181717?logo=github&logoColor=white)](https://github.com/YannX1e/Importance-Weighted-On-Policy-Distillation) | 16.00 | 62.04 🥉 | 50.07 | 73.00 |
 | Binary OPD [![GitHub](https://img.shields.io/badge/GitHub-KL--Free--OPD-181717?logo=github&logoColor=white)](https://github.com/LeapLabTHU/KL-Free-OPD) | 16.57 | 61.28 | 50.13 | 73.15 |
 | TA-OPD [![GitHub](https://img.shields.io/badge/GitHub-TA--OPD-181717?logo=github&logoColor=white)](https://github.com/ml-stat-Sustech/TA-OPD) | 16.14 | 61.89 | 50.07 | 73.60 |
-| Lightning OPD [![GitHub](https://img.shields.io/badge/GitHub-Lightning--OPD-181717?logo=github&logoColor=white)](https://github.com/jet-ai-projects/Lightning-OPD) | **18.00** | 60.21 | 47.29 | **75.15** |
-| IER [![GitHub](https://img.shields.io/badge/GitHub-IER--OPD-181717?logo=github&logoColor=white)](https://github.com/BruceSheng1202/IER-OPD) | 17.57 | 61.43 | 49.67 | 73.65 |
+| Lightning OPD [![GitHub](https://img.shields.io/badge/GitHub-Lightning--OPD-181717?logo=github&logoColor=white)](https://github.com/jet-ai-projects/Lightning-OPD) | **18.00** 🥇 | 60.21 | 47.29 | **75.15** 🥇 |
+| IER [![GitHub](https://img.shields.io/badge/GitHub-IER--OPD-181717?logo=github&logoColor=white)](https://github.com/BruceSheng1202/IER-OPD) | 17.57 🥈 | 61.43 | 49.67 | 73.65 🥉 |
 | FiRe [![GitHub](https://img.shields.io/badge/GitHub-FiRe--OPD-181717?logo=github&logoColor=white)](https://github.com/YuYingLi0/FiRe-OPD) | 16.43 | 61.43 | 50.00 | 73.00 |
-| ResOPD [![GitHub](https://img.shields.io/badge/GitHub-ResOPD-181717?logo=github&logoColor=white)](https://github.com/InternLM/ResOPD) | 16.00 | 61.59 | 50.66 | 73.40 |
-| LSPD [![GitHub](https://img.shields.io/badge/GitHub-LSPD-181717?logo=github&logoColor=white)](https://github.com/UNCSciML/LSPD) | 16.14 | 61.74 | **50.99** | 72.85 |
-| PowerOPD α=5 [![GitHub](https://img.shields.io/badge/GitHub-PowerOPD-181717?logo=github&logoColor=white)](https://github.com/EIT-NLP/PowerOPD) | 15.86 | 61.89 | **50.99** | 73.80 |
+| ResOPD [![GitHub](https://img.shields.io/badge/GitHub-ResOPD-181717?logo=github&logoColor=white)](https://github.com/InternLM/ResOPD) | 16.00 | 61.59 | 50.66 🥉 | 73.40 |
+| LSPD [![GitHub](https://img.shields.io/badge/GitHub-LSPD-181717?logo=github&logoColor=white)](https://github.com/UNCSciML/LSPD) | 16.14 | 61.74 | **50.99** 🥇 | 72.85 |
+| PowerOPD α=5 [![GitHub](https://img.shields.io/badge/GitHub-PowerOPD-181717?logo=github&logoColor=white)](https://github.com/EIT-NLP/PowerOPD) | 15.86 | 61.89 | **50.99** 🥇 | 73.80 🥈 |
 | AOPD [![GitHub](https://img.shields.io/badge/GitHub-AOPD-181717?logo=github&logoColor=white)](https://github.com/ObitoJN/AOPD_VeRL) | 17.00 | 59.60 | 49.34 | 71.75 |
 | OPD+ (FKL) [![GitHub](https://img.shields.io/badge/GitHub-nano--opd-181717?logo=github&logoColor=white)](https://github.com/siyux1927/nano-opd) | 16.29 | 59.76 | 50.40 | 72.50 |
 
@@ -87,7 +87,8 @@ Lightning OPD 在五阶段完成时提前收工（用掉 10,800 秒中的 7,513 
 
 ## 比较口径
 
-- **分数：** 百分比，采样平均正确率（pass@1 估计）；格式错误与截断保留在分母。粗体为列内已训练方法的最优值。每个配方一次训练，seed 42；小幅差距不足以确立稳定排名。
+- **分数：** 百分比，采样平均正确率（pass@1 估计）；格式错误与截断保留在分母。每个配方一次训练，seed 42；小幅差距不足以确立稳定排名。
+- **奖牌：** 🥇 / 🥈 / 🥉 标记每列前三的已训练配方；并列共享同一奖牌并跳过对应的低一级奖牌（两个 🥈 即无 🥉）。初始学生与固定教师为参照行，不参与排名。粗体为列内已训练方法的最优值。
 - **评测：** non-thinking、bf16。Math500 每题 4 次、AIME 16 次，T 0.7 / top-p 0.95 / 生成 ≤ 8,192 / 上下文 10,240；LCB v6¹ 冻结 175 题 ×4，HumanEval+ 164 ×4、MBPP+ 378 ×4，T 1.0 / 生成 ≤ 16,384；医学每题一次生成、T 1.0、学生 4,096 / 教师 8,192。分布标记：★ 最接近训练分布，◐ 同族偏移，△ 跨域保持。
 - **预算与计账：** 数学 / 代码 / 医学为 16 PPU × 3h = 10,800 秒；Agentic 为 16 PPU × 6h = 21,600 秒（教师打分计入，评测另行计时）。时钟从 launcher 启动开始，包含初始化与检查；取截止前最后完整保存的 checkpoint。调试、资格核验与最终评测另行计账。
 - **允许的算法：** SFT、在线/离线蒸馏、RL、阶段组合、教师示范、缓存与回放均计入同一预算；不引入外部数据或免费的额外已训练 checkpoint。有依据的算法专属差异予以保留，不适用的参数记为不适用。
