@@ -15,18 +15,18 @@ Train on math; evaluate the same final checkpoint on math and code. Models: **Qw
 | Initial student (no training) | 73.35 | 14.38 | 10.42 | 16.43 |
 | Fixed teacher · Qwen3-4B | 83.45 | 26.04 | 20.83 | 25.71 |
 | OPD [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 74.85 | 15.42 | 14.17 | 16.71 |
-| ExOPD λ=1.1 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 75.35 | 15.83 | 13.96 | 16.43 |
-| ExOPD λ=1.25 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 73.35 | 14.58 | 13.96 | **17.29** |
+| ExOPD λ=1.1 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 75.35 🥉 | 15.83 | 13.96 | 16.43 |
+| ExOPD λ=1.25 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 73.35 | 14.58 | 13.96 | **17.29** 🥇 |
 | Binary OPD [![GitHub](https://img.shields.io/badge/GitHub-KL--Free--OPD-181717?logo=github&logoColor=white)](https://github.com/LeapLabTHU/KL-Free-OPD) | 74.45 | 15.63 | 12.92 | 16.43 |
-| IW-OPD [![GitHub](https://img.shields.io/badge/GitHub-IW--OPD-181717?logo=github&logoColor=white)](https://github.com/YannX1e/Importance-Weighted-On-Policy-Distillation) | 75.40 | **17.08** | 14.79 | 16.29 |
-| TA-OPD (tail-aware) [![GitHub](https://img.shields.io/badge/GitHub-TA--OPD-181717?logo=github&logoColor=white)](https://github.com/ml-stat-Sustech/TA-OPD) | **75.55** | 15.63 | 14.79 | 16.57 |
-| LSPD [![GitHub](https://img.shields.io/badge/GitHub-LSPD-181717?logo=github&logoColor=white)](https://github.com/UNCSciML/LSPD) | 75.25 | 13.33 | 13.33 | **17.29** |
-| ResOPD [![GitHub](https://img.shields.io/badge/GitHub-ResOPD-181717?logo=github&logoColor=white)](https://github.com/InternLM/ResOPD) | 74.00 | 16.88 | 14.38 | 16.00 |
+| IW-OPD [![GitHub](https://img.shields.io/badge/GitHub-IW--OPD-181717?logo=github&logoColor=white)](https://github.com/YannX1e/Importance-Weighted-On-Policy-Distillation) | 75.40 🥈 | **17.08** 🥇 | 14.79 🥈 | 16.29 |
+| TA-OPD (tail-aware) [![GitHub](https://img.shields.io/badge/GitHub-TA--OPD-181717?logo=github&logoColor=white)](https://github.com/ml-stat-Sustech/TA-OPD) | **75.55** 🥇 | 15.63 | 14.79 🥈 | 16.57 |
+| LSPD [![GitHub](https://img.shields.io/badge/GitHub-LSPD-181717?logo=github&logoColor=white)](https://github.com/UNCSciML/LSPD) | 75.25 | 13.33 | 13.33 | **17.29** 🥇 |
+| ResOPD [![GitHub](https://img.shields.io/badge/GitHub-ResOPD-181717?logo=github&logoColor=white)](https://github.com/InternLM/ResOPD) | 74.00 | 16.88 🥈 | 14.38 | 16.00 |
 | PowerOPD α=5 [![GitHub](https://img.shields.io/badge/GitHub-PowerOPD-181717?logo=github&logoColor=white)](https://github.com/EIT-NLP/PowerOPD) | 74.40 | 12.71 | 13.75 | 16.14 |
-| AOPD [![GitHub](https://img.shields.io/badge/GitHub-AOPD-181717?logo=github&logoColor=white)](https://github.com/ObitoJN/AOPD_VeRL) | 74.45 | 13.13 | 11.67 | 17.00 |
+| AOPD [![GitHub](https://img.shields.io/badge/GitHub-AOPD-181717?logo=github&logoColor=white)](https://github.com/ObitoJN/AOPD_VeRL) | 74.45 | 13.13 | 11.67 | 17.00 🥉 |
 | OPD+ (FKL) [![GitHub](https://img.shields.io/badge/GitHub-nano--opd-181717?logo=github&logoColor=white)](https://github.com/siyux1927/nano-opd) | 73.40 | 14.79 | 12.29 | 16.57 |
 | IER [![GitHub](https://img.shields.io/badge/GitHub-IER--OPD-181717?logo=github&logoColor=white)](https://github.com/BruceSheng1202/IER-OPD) | 73.10 | 13.33 | 13.13 | 16.14 |
-| FiRe [![GitHub](https://img.shields.io/badge/GitHub-FiRe--OPD-181717?logo=github&logoColor=white)](https://github.com/YuYingLi0/FiRe-OPD) | 74.30 | 16.88 | **15.63** | 15.71 |
+| FiRe [![GitHub](https://img.shields.io/badge/GitHub-FiRe--OPD-181717?logo=github&logoColor=white)](https://github.com/YuYingLi0/FiRe-OPD) | 74.30 | 16.88 🥈 | **15.63** 🥇 | 15.71 |
 
 ## Single-turn Code
 
@@ -37,17 +37,17 @@ Train on 12,238 fixed code prompts; evaluate the same final checkpoint on code a
 | Initial student (no training) | 16.43 | 62.65 | 49.40 | 73.35 |
 | Fixed teacher · Qwen3-4B | 25.71 | 76.98 | 58.53 | 83.45 |
 | OPD [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 15.57 | 61.59 | 49.93 | 72.80 |
-| ExOPD λ=1.1 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 17.14 | **64.48** | 50.40 | 73.30 |
-| ExOPD λ=1.25 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 16.00 | 64.18 | 49.74 | 73.55 |
-| IW-OPD [![GitHub](https://img.shields.io/badge/GitHub-IW--OPD-181717?logo=github&logoColor=white)](https://github.com/YannX1e/Importance-Weighted-On-Policy-Distillation) | 16.00 | 62.04 | 50.07 | 73.00 |
+| ExOPD λ=1.1 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 17.14 🥉 | **64.48** 🥇 | 50.40 | 73.30 |
+| ExOPD λ=1.25 [![GitHub](https://img.shields.io/badge/GitHub-G--OPD-181717?logo=github&logoColor=white)](https://github.com/RUCBM/G-OPD) | 16.00 | 64.18 🥈 | 49.74 | 73.55 |
+| IW-OPD [![GitHub](https://img.shields.io/badge/GitHub-IW--OPD-181717?logo=github&logoColor=white)](https://github.com/YannX1e/Importance-Weighted-On-Policy-Distillation) | 16.00 | 62.04 🥉 | 50.07 | 73.00 |
 | Binary OPD [![GitHub](https://img.shields.io/badge/GitHub-KL--Free--OPD-181717?logo=github&logoColor=white)](https://github.com/LeapLabTHU/KL-Free-OPD) | 16.57 | 61.28 | 50.13 | 73.15 |
 | TA-OPD [![GitHub](https://img.shields.io/badge/GitHub-TA--OPD-181717?logo=github&logoColor=white)](https://github.com/ml-stat-Sustech/TA-OPD) | 16.14 | 61.89 | 50.07 | 73.60 |
-| Lightning OPD [![GitHub](https://img.shields.io/badge/GitHub-Lightning--OPD-181717?logo=github&logoColor=white)](https://github.com/jet-ai-projects/Lightning-OPD) | **18.00** | 60.21 | 47.29 | **75.15** |
-| IER [![GitHub](https://img.shields.io/badge/GitHub-IER--OPD-181717?logo=github&logoColor=white)](https://github.com/BruceSheng1202/IER-OPD) | 17.57 | 61.43 | 49.67 | 73.65 |
+| Lightning OPD [![GitHub](https://img.shields.io/badge/GitHub-Lightning--OPD-181717?logo=github&logoColor=white)](https://github.com/jet-ai-projects/Lightning-OPD) | **18.00** 🥇 | 60.21 | 47.29 | **75.15** 🥇 |
+| IER [![GitHub](https://img.shields.io/badge/GitHub-IER--OPD-181717?logo=github&logoColor=white)](https://github.com/BruceSheng1202/IER-OPD) | 17.57 🥈 | 61.43 | 49.67 | 73.65 🥉 |
 | FiRe [![GitHub](https://img.shields.io/badge/GitHub-FiRe--OPD-181717?logo=github&logoColor=white)](https://github.com/YuYingLi0/FiRe-OPD) | 16.43 | 61.43 | 50.00 | 73.00 |
-| ResOPD [![GitHub](https://img.shields.io/badge/GitHub-ResOPD-181717?logo=github&logoColor=white)](https://github.com/InternLM/ResOPD) | 16.00 | 61.59 | 50.66 | 73.40 |
-| LSPD [![GitHub](https://img.shields.io/badge/GitHub-LSPD-181717?logo=github&logoColor=white)](https://github.com/UNCSciML/LSPD) | 16.14 | 61.74 | **50.99** | 72.85 |
-| PowerOPD α=5 [![GitHub](https://img.shields.io/badge/GitHub-PowerOPD-181717?logo=github&logoColor=white)](https://github.com/EIT-NLP/PowerOPD) | 15.86 | 61.89 | **50.99** | 73.80 |
+| ResOPD [![GitHub](https://img.shields.io/badge/GitHub-ResOPD-181717?logo=github&logoColor=white)](https://github.com/InternLM/ResOPD) | 16.00 | 61.59 | 50.66 🥉 | 73.40 |
+| LSPD [![GitHub](https://img.shields.io/badge/GitHub-LSPD-181717?logo=github&logoColor=white)](https://github.com/UNCSciML/LSPD) | 16.14 | 61.74 | **50.99** 🥇 | 72.85 |
+| PowerOPD α=5 [![GitHub](https://img.shields.io/badge/GitHub-PowerOPD-181717?logo=github&logoColor=white)](https://github.com/EIT-NLP/PowerOPD) | 15.86 | 61.89 | **50.99** 🥇 | 73.80 🥈 |
 | AOPD [![GitHub](https://img.shields.io/badge/GitHub-AOPD-181717?logo=github&logoColor=white)](https://github.com/ObitoJN/AOPD_VeRL) | 17.00 | 59.60 | 49.34 | 71.75 |
 | OPD+ (FKL) [![GitHub](https://img.shields.io/badge/GitHub-nano--opd-181717?logo=github&logoColor=white)](https://github.com/siyux1927/nano-opd) | 16.29 | 59.76 | 50.40 | 72.50 |
 
@@ -87,7 +87,8 @@ No OPD arm beats its own SFT initialisation under an equal budget: SFT is the st
 
 ## Comparison protocol
 
-- **Scores:** percentages, mean sample correctness (a pass@1 estimate); format errors and truncations stay in the denominator. Bold marks the highest trained value in each column. Each recipe has one training run, seed 42; small gaps do not establish stable rankings.
+- **Scores:** percentages, mean sample correctness (a pass@1 estimate); format errors and truncations stay in the denominator. Each recipe has one training run, seed 42; small gaps do not establish stable rankings.
+- **Medals:** 🥇 / 🥈 / 🥉 mark the top three trained recipes in each column; ties share a medal and the affected lower medal is skipped (two 🥈 means no 🥉). The initial student and fixed teacher are reference rows and are never ranked. Bold marks the highest trained value in each column.
 - **Evaluation:** non-thinking, bf16. Math500 4 samples/task and AIME 16, T 0.7 / top-p 0.95 / gen ≤ 8,192 / context 10,240; LCB v6¹ 175-task frozen subset ×4, HumanEval+ 164 ×4 and MBPP+ 378 ×4, T 1.0 / gen ≤ 16,384; Medical one completion per question, T 1.0, student 4,096 / teacher 8,192 caps. Distribution tags: ★ closest to the training distribution, ◐ same family shifted, △ cross-domain retention.
 - **Budget and accounting:** 16 PPU × 3 h = 10,800 s for Math / Code / Medical; 16 PPU × 6 h = 21,600 s for Agentic, with teacher scoring included and evaluation timed separately. The clock starts at launcher invocation, including initialization and checks; evaluate the last complete checkpoint saved before the deadline. Debugging, qualification and final evaluation are accounted for separately.
 - **Allowed methods:** SFT, online/offline distillation, RL, staged combinations, teacher demonstrations, caching and replay all count toward the same budget; no external data or free extra trained checkpoints. Justified algorithm-specific differences are preserved and inapplicable parameters marked as such.
